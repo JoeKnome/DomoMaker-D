@@ -33,7 +33,7 @@ $(document).ready(function() {
         $("#domoMessage").animate({width:'hide'},350);
     
         if($("#domoName").val() == '' || $("#domoAge").val() == '') {
-            handleError("RAWR! All fields are required");
+            handleError("RAWR! Name and age are required");
             return false;
         }
 
@@ -42,4 +42,15 @@ $(document).ready(function() {
         return false;
     });
     
+	$(".deleteDomo").on("click", function(e) {
+        e.preventDefault();
+    
+        $("#domoMessage").animate({width:'hide'},350);
+    
+		var deleteForm = e.target.parentElement;
+		
+		sendAjax(deleteForm.action, $(deleteForm).serialize());
+        
+        return false;
+    });
 });

@@ -50,7 +50,7 @@ nav:nth-child(1) {
 .domoForm {
     border: 2px solid #338acc;
     height: 35px;
-    width: 700px;
+    width: 1050px;
     margin-top:0px;
     padding-top:10px;
     background-color: #55acee;
@@ -249,12 +249,46 @@ h3.domoName {
 }
 
 h3.domoAge {
-    float:right;
+    float: right;
     text-align: left;
     width: 100px;
     font-weight: bold;
     padding-right: 40px;
     font-size: 1.5em;
+}
+
+h3.domoJob {
+	clear: both;
+    float: right;
+    text-align: left;
+    width: 100px;
+    font-weight: bold;
+    padding-right: 40px;
+    font-size: 1.5em;
+}
+
+.deleteDomo {
+    transition: background-color 0.4s ease;
+    display: block;
+    margin-top: 14px;
+    font-size: 1.2em;
+    width: 90px;
+    background-color: #55acee;
+    border-radius: 2px;
+    padding: 3px 0px;
+    color: black;
+    text-decoration: none;
+    margin-left: 45px;
+    padding: 5px;
+}
+
+.deleteDomo:link, .deleteDomo:visited, .deleteDomo:hover, .deleteDomo:active {
+    color: white;
+}
+
+.deleteDomo:hover {
+    transition: background-color 0.4s ease;
+    background-color: #338acc;
 }
 
 .domo:first-child {

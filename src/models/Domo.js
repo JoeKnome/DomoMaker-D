@@ -7,6 +7,10 @@ var setName = function(name) {
 	return _.escape(name).trim();
 };
 
+var setJob = function(job) {
+	return _.escape(job).trim();
+};
+
 var DomoSchema = new mongoose.Schema({
 	name: {
 		type: String,
@@ -19,6 +23,13 @@ var DomoSchema = new mongoose.Schema({
 		type: Number,
 		min: 0,
 		required: true
+	},
+	
+	job: {
+		type: String,
+		required: false,
+		trim: true,
+		set: setJob
 	},
 	
 	owner: {
@@ -36,7 +47,8 @@ var DomoSchema = new mongoose.Schema({
 DomoSchema.methods.toAPI = function() {
 	return {
 		name: this.name,
-		age: this.age
+		age: this.age,
+		job: this.job
 	};
 };
 
@@ -45,7 +57,16 @@ DomoSchema.statics.findByOwner = function(ownerId, callback) {
 		owner: mongoose.Types.ObjectId(ownerId)
 	};
 	
-	return DomoModel.find(search).select("name age").exec(callback);
+	return DomoModel.find(search).select("name age job").exec(callback);
+};
+
+DomoSchema.statics.findByName = function(ownerId, name, callback) {
+    var search = {
+		owner: mongoose.Types.ObjectId(ownerId),
+        name: name
+    };
+
+    return DomoModel.findOne(search).select("name age job").exec(callback);
 };
 
 DomoModel = mongoose.model('Domo', DomoSchema);
