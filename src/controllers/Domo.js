@@ -43,7 +43,7 @@ var deleteDomo = function(req, res) {
 		return res.status(400).json({error: "RAWR! No name given for deletion"});
 	}
 	
-	Domo.findByName(req.session.account._id, req.body.name, function(err, doc) {
+	Domo.DomoModel.findByName(req.session.account._id, req.body.name, function(err, doc) {
         if(err) {
             console.log(err);
 			return res.status(400).json({error: "An error occurred"});

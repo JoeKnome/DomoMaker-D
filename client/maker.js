@@ -46,9 +46,7 @@ $(document).ready(function() {
         e.preventDefault();
     
         $("#domoMessage").animate({width:'hide'},350);
-		
-		handleError("RAWR! Domo deleted");
-    
+		    
 		var deleteForm = e.target.parentElement;
 		
 		console.log($(deleteForm));
