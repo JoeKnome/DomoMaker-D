@@ -268,12 +268,14 @@ h3.domoJob {
 }
 
 .deleteDomo {
+	clear: both;
+    float: right;
     transition: background-color 0.4s ease;
     display: block;
     margin-top: 14px;
     font-size: 1.2em;
-    width: 90px;
     background-color: #55acee;
+	border: 1px solid black;
     border-radius: 2px;
     padding: 3px 0px;
     color: black;

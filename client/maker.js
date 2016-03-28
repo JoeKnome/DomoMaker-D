@@ -36,9 +36,9 @@ $(document).ready(function() {
             handleError("RAWR! Name and age are required");
             return false;
         }
-
-        sendAjax($("#domoForm").attr("action"), $("#domoForm").serialize());
-        
+				
+		sendAjax($("#domoForm").attr("action"), $("#domoForm").serialize());
+		
         return false;
     });
     
@@ -46,10 +46,15 @@ $(document).ready(function() {
         e.preventDefault();
     
         $("#domoMessage").animate({width:'hide'},350);
+		
+		handleError("RAWR! Domo deleted");
     
 		var deleteForm = e.target.parentElement;
 		
-		sendAjax(deleteForm.action, $(deleteForm).serialize());
+		console.log($(deleteForm));
+		console.log($(deleteForm).attr("action"));
+		
+		sendAjax($(deleteForm).attr("action"), $(deleteForm).serialize());
         
         return false;
     });
